@@ -1,0 +1,3 @@
+when(unTest.getSpeechWithTag("motivational")).thenReturn(mainData);
+        assertEquals(mainData, unTest.getSpeechWithTag("motivational"));
+        verify(speechRepository).retrieveByTag("motivational");
