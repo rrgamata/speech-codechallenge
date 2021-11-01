@@ -34,29 +34,29 @@ GET
 
 ### GETALL (Including deleted)
 
-curl http://localhost:8080/api/v1/codechallenge/
+curl https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/
 
 ### GETALL ACTIVE (deleted files not included)
 
-curl http://localhost:8080/api/v1/codechallenge/active
+curl https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/active
 
 ### GET ALL with Author
 
-curl -G "http://localhost:8080/api/v1/codechallenge/author" --data-urlencode "value=Nelson Mandela"
+curl -G "https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/author" --data-urlencode "value=Nelson Mandela"
 
 
 ### GET ALL with Tags
 
-curl -G "http://localhost:8080/api/v1/codechallenge/tag" --data-urlencode "value=motivational"
+curl -G "https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/tag" --data-urlencode "value=motivational"
 
 
 ### GET ALL Between Dates
 
-curl -G "http://localhost:8080/api/v1/codechallenge/between" --data-urlencode "before=1963-01-17" --data-urlencode "after=1964-11-20"
+curl -G "https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/between" --data-urlencode "before=1963-01-17" --data-urlencode "after=1964-11-20"
 
 
 ### GET ALL speeches with snip
-curl -G "http://localhost:8080/api/v1/codechallenge/search" --data-urlencode "snip=I have a dream"
+curl -G "https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/search" --data-urlencode "snip=I have a dream"
 
 
 
@@ -68,25 +68,25 @@ EDIT/PUT
 
 ### Author 
 
-curl -X PUT http://localhost:8080/api/v1/codechallenge/edit/1 -d "author=JANE DOE"
+curl -X PUT https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/edit/1 -d "author=JANE DOE"
 
 
 ### Speech Body
 
-curl -X PUT http://localhost:8080/api/v1/codechallenge/edit/1 -d "body=speech body edited text"
+curl -X PUT https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/edit/1 -d "body=speech body edited text"
 
 ### Tags/ Keywords
 
-curl -X PUT http://localhost:8080/api/v1/codechallenge/edit/1 -d "tags=EDITED,tags,Example"
+curl -X PUT https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/edit/1 -d "tags=EDITED,tags,Example"
 
 ### Date
 
-curl -X PUT http://localhost:8080/api/v1/codechallenge/edit/1 -d "date=2021-08-10"
+curl -X PUT https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/edit/1 -d "date=2021-08-10"
 
 
 ### Multiple edits (example edit both body and tags)
 
-curl -X PUT http://localhost:8080/api/v1/codechallenge/edit/1 -d "body=speech body edited text" -d "tags=EDITED,tags,Example"
+curl -X PUT https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/edit/1 -d "body=speech body edited text" -d "tags=EDITED,tags,Example"
 
 ---
 
@@ -94,7 +94,7 @@ ADD/POST
 ========
 
 ### POST
-curl -d "{  \"speechAuthor\": \"Nelson Mandela\",\"speechBody\": \"The road ahead will be long. Our climb will be steep. We may not get there in one year, or even one term, but America — I have never been more hopeful than I am tonight that we will get there. I promise you: We as a people will get there.\", \"speechKeywords\": \"America, President\", \"speechDate\": \"2008-11-05\"}"  -H "Content-Type: application/json" http://localhost:8080/api/v1/codechallenge/ 
+curl -d "{  \"speechAuthor\": \"Nelson Mandela\",\"speechBody\": \"The road ahead will be long. Our climb will be steep. We may not get there in one year, or even one term, but America — I have never been more hopeful than I am tonight that we will get there. I promise you: We as a people will get there.\", \"speechKeywords\": \"America, President\", \"speechDate\": \"2008-11-05\"}"  -H "Content-Type: application/json" https://codechallenge-speechapi.herokuapp.com/api/v1/codechallenge/ 
 
 
 ---
