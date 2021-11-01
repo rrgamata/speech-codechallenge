@@ -19,15 +19,15 @@ public interface SpeechRepository extends JpaRepository<Speech, Long>  {
     List<Speech> retrieveAllActiveSpeeches();
     //Optional<Speech> findSpeechBySpeechAuthor(String SpeechAuthor);
 
-    @Query("SELECT s FROM Speech s JOIN s.tags t WHERE t = LOWER(:tag)")
+    @Query("SELECT s FROM Speech s JOIN s.tags t WHERE t = LOWER(:tag) AND s.deleteFlag= 0")
     List<Speech> retrieveByTag(@Param("tag") String tag);
     //Optional<Speech> findSpeechBySpeechAuthor(String SpeechAuthor);
 
-    @Query("Select s FROM Speech s WHERE LOWER(s.speechAuthor) = LOWER(:author)")
+    @Query("Select s FROM Speech s WHERE LOWER(s.speechAuthor) = LOWER(:author) AND s.deleteFlag= 0")
     List<Speech> retrieveByAuthor(@Param("author")String author);
 
 
-    @Query("SELECT s FROM Speech s WHERE s.speechDate BETWEEN ?1 AND ?2 ")
+    @Query("SELECT s FROM Speech s WHERE s.speechDate BETWEEN ?1 AND ?2 AND s.deleteFlag= 0")
     List<Speech> retrieveSpeechBetweenDates(@Param("before")LocalDate before,
                                             @Param("after")LocalDate after);
 
@@ -36,7 +36,7 @@ public interface SpeechRepository extends JpaRepository<Speech, Long>  {
     List<Speech> retrieveSpeechSnip(@Param("snip") String snippet);
 */
 
-    @Query( "SELECT s FROM Speech s WHERE LOWER(s.speechBody) LIKE LOWER(?1)")
+    @Query( "SELECT s FROM Speech s WHERE LOWER(s.speechBody) LIKE LOWER(?1) AND s.deleteFlag= 0")
     List<Speech> retrieveSpeechSnip(@Param("snip") String snippet);
 
 }
